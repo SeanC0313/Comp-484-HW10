@@ -20,6 +20,21 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     // Add a variable "pet_info" equal to a object with the name (string), weight (number), and happiness (number) of your pet
     var pet_info = {name:"Theo", weight: 30, happiness: 50, energy: 20};
     var min_weight = 10;
+
+    console.log("Message Logging: Giga Pet app started");
+    console.info("Log Info: Pet information loaded");
+    console.warn("Log Warning: Energy should not go above 40");
+    console.error("Log Error: Example error message");
+    console.table(pet_info);
+
+    console.group("Log Group: Pet Info");
+    console.log("Name:", pet_info.name);
+    console.log("Weight:", pet_info.weight);
+    console.log("Happiness:", pet_info.happiness);
+    console.log("Energy:", pet_info.energy);
+    console.groupEnd();
+
+    console.log("%cLog Custom: Styled message", "color: purple; font-size: 18px; font-weight: bold;");
   
     function clickedTreatButton() {
       pet_info.happiness += 1;
@@ -93,4 +108,25 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       $('.happiness').text(pet_info['happiness']);
       $('.energy').text(pet_info['energy']);
     }
-  
+
+    function cause404Error() {
+      fetch("missing-file-example.json");
+    }
+
+    function causeTypeError() {
+      let pet = null;
+      console.log(pet.name);
+    }
+
+    function causeViolation() {
+      const start = Date.now();
+      while (Date.now() - start < 300) {
+      }
+      console.warn("Violation example: long-running JavaScript task");
+    }
+
+    function reproduceBug() {
+      pet_info.energy = pet_info.energy + 100;
+      checkAndUpdatePetInfoInHtml();
+    }
+      
