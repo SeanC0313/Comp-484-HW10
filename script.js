@@ -127,6 +127,11 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 
     function reproduceBug() {
       pet_info.energy = pet_info.energy + 100;
+
+      console.log("Bug reproduced: energy before fix =", pet_info.energy);
+
       checkAndUpdatePetInfoInHtml();
+
+      console.log("After fix: energy =", pet_info.energy);
     }
       
